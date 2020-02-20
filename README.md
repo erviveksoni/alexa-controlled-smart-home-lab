@@ -12,7 +12,8 @@ This project aims to guide and enable participants to implement other ideas as w
 
 # Prerequisites
 ## Hardware
-- NodeMCU Board with Micro USB Cable 
+- NodeMCU Board 
+- Micro USB Data Cable (Cable should be able to transfer data. Power only cable will not work)
 - 1 DHT11 Temperature Sensor
 - 1 RGD LED
 - Few Jumper Wires

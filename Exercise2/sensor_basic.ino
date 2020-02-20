@@ -1,4 +1,4 @@
-#include "DHT.h"        // including the library of DHT11 temperature and humidity sensor
+#include "DHT.h"        // including the dependent library of DHT11 temperature and humidity sensor
  
 
 // GPIO Pins

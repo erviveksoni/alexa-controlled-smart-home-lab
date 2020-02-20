@@ -46,9 +46,9 @@ void setup() {
 // the loop function runs over and over again forever
 void loop()
 {
-  digitalWrite(LED_BUILTIN, LOW); // Turn the LED off by sending low voltage
+  digitalWrite(LED_BUILTIN, LOW); // Turn the LED ON by sending low voltage
   delay(1000);                     // Wait for a second
-  digitalWrite(LED_BUILTIN, HIGH); // Turn the LED off by sending HIGH voltage
+  digitalWrite(LED_BUILTIN, HIGH); // Turn the LED OFF by sending HIGH voltage
   delay(2000);                     // Wait for two seconds (to demonstrate the active low LED)
 }
 ```
@@ -63,4 +63,3 @@ void loop()
 18. If everything goes well, you should be able to see the LED on your board start blinking!
 29. Congratulations on writing your first Arduino code!!!
 
- 

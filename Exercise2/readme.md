@@ -10,7 +10,7 @@ connect NodeMCU to RGB led and temperature sensoras shown in the schematics.
 - Open Arduino IDE
 - Go to tools -> Manage Libraries...
 - Search for DHT
-- Click on Install next to DHT Sensor library by Adafruit
+- Click on Install next to DHT Sensor library by Adafruit. If prompted, install all the dependent libraries for DHT11
 
 ## Setting GPIO 
 - Include the DHT library in the sketch by adding the below code at the top of the file

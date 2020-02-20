@@ -259,9 +259,8 @@ Now our NodeMCU can send and receive messages to/from the AWS IoT service.
 We can confirm this using the `Test` MQTT client available on AWS IoT service.
 - Open AWS IoT service home page
 - From the left navigation click `Test`
-- Click `Publish to a topic` option and put the topic as `mysmarthome/turnonred` and then click `Publish to topic` button
+- Click `Publish to a topic` option and put the topic as `<THING_NAME>/turnonred` and then click `Publish to topic` button
 - If everything is setup correctly then you should see the RED led glowing and vales displayed in the Arduino IDE serial monitor
-- Similarly check the Temperature values sent from the device getting reflected under in Manage -> Things -> `<Thing_Name>` -> Shadow
 - In Serial Monitor, you should be able to see following output:
 ````
 Publish message: Room Temprature: 29
@@ -269,3 +268,4 @@ Message arrived [mysmarthome/turnonred] {
   "message": "Hello from AWS IoT console"
 }
 ````
+- Similarly check the Temperature values sent from the device getting reflected under in Manage -> Things -> `<THING_NAME>` -> Shadow
