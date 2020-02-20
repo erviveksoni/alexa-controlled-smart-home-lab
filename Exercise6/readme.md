@@ -6,7 +6,8 @@ Now we are all set to create an Alexa skill which will interact with user to rec
 - Sign into [Alexa Skills Kit Developer Console](https://developer.amazon.com/alexa/console/ask) with your credential created in prerequisite section
 - Click `Create Skill` button
 - Give your skill a name e.g. `My Smarthome`
-- Select a default language. Your skill will only appear if the user has this language selected
+- Select a default language e.g. EN-US or EN-IN
+    > __Note__: Your skill will only appear if the user has this language selected for his account.
 - Select the model as `Custom` and hosting method as `Provision your own`
 - Click `Create skill` button on top right of the screen
 - Select the skill template as `Start from scratch` and then click `Choose`
