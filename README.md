@@ -24,7 +24,9 @@ This project aims to guide and enable participants to implement other ideas as w
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
 - [USB to UART Bridge Virtual COM Port (VCP) drivers](https://www.silabs.com/documents/public/software/Mac_OSX_VCP_Driver.zip)
   > __Note__: Your machine will require a restart after installing this driver.
-- Configure Arduino IDE with NodeMCU Board by setting Arduino->Preferences->Additional Boards Manager URLs to:  https://arduino.esp8266.com/stable/package_esp8266com_index.json
+- Configure Arduino IDE with NodeMCU Board by setting Arduino->Preferences->Additional Boards Manager URLs to:  https://arduino.esp8266.com/stable/package_esp8266com_index.json. 
+
+    Alternatively, search and install NoddMCU board from Tools ->Board->Boards Manager 
 - Download the [Arduino ESP8266 filesystem uploader](https://github.com/esp8266/arduino-esp8266fs-plugin#installation) plugin and follow steps under the installation section
   > __Note__: Ensure you extract this plugin under /Users/[your_user_account]/Documents/Arduino/tools
 - IDE (VSCode or IntelliJ Idea)
