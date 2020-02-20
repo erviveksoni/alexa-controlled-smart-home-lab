@@ -5,13 +5,14 @@
 - Copy the `certs` folder to the current working directory
 - Open terminal and cd to the newly copied `certs` folder
 - Use OpenSSL to convert the certificates to `.der` format so they can be understood by NodeMCU board
-    
+  
+  We will use the certificate, private key and root ca certificate file for this step. Public certificate is not required for this exercise.
     ````
     $ openssl x509 -in xxx-certificate.pem.crt -out cert.der -outform DER 
     $ openssl rsa -in xxx-private.pem.key -out private.der -outform DER
     $ openssl x509 -in AmazonRootCA1.pem -out ca.der -outform DER
     ````
-- Create a directory `data` which sits alongside your Arduino code and copy all the .DER-format files to it
+- Create a directory `data` which sits alongside your Arduino sketch code (in the same folder as your ino file) and copy all the .DER-format files to it
 - From the `Tools` menu in Arduino IDE, you should be able to see `ESP8266 Sketch Data Uploade` option
     > __Note__: If you have followed the prerequisites for this lab, you should already have Arduino ESP8266 filesystem uploader installed.
 - Ensure the board is connected to your laptop, click `ESP8266 Sketch Data Uploade` option to upload certificates to NodeMCU. 
@@ -40,10 +41,13 @@ You can install these libraries from Tools > Manage Libraries and include them f
 const char *thing_name = "<THING_NAME>";
 const char *AWS_endpoint = "<REST API Endpoint>";
 ````
-
 Replace THING_NAME and AWS Endpoint obtained from previous exercises.
 
+_If your are using the sketch file as is then find and replace `<THING_NAME>` in the sketch file with your thing name created previously._
+
 ### Add PubSub client and Wifi Configurations
+Replace `<THING_NAME>` with your thing name in the code below.
+
 ````c
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
@@ -60,19 +64,19 @@ void callback(char *topic, byte *payload, unsigned int length)
   }
   Serial.println();
 
-  if (strcmp(topic, "mysmarthome/turnonred") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnonred") == 0)
   {
     set_red_led();
   }
-  if (strcmp(topic, "mysmarthome/turnonblue") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnonblue") == 0)
   {
     set_blue_led();
   }
-  if (strcmp(topic, "mysmarthome/turnongreen") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnongreen") == 0)
   {
     set_green_led();
   }
-  if (strcmp(topic, "mysmarthome/turnoff") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnoff") == 0)
   {
     turn_off_led();
   }
@@ -120,7 +124,7 @@ void loadCertificates()
     Serial.println("cert not loaded");
 
   // Load private key file
-  File private_key = SPIFFS.open("/private.der", "r"); //replace private eith your uploaded file name
+  File private_key = SPIFFS.open("/private.der", "r"); //replace private with your uploaded file name
   if (!private_key)
   {
     Serial.println("Failed to open private cert file");
@@ -211,7 +215,7 @@ void loop()
 
 ### Implementing reconnection strategy for pubsub client
 
-Add the following code to the sketch
+Add the following code to the sketch. Replace `<THING_NAME>` with your thing name in the code below.
 
 ````c
 // Sensors and LED
@@ -229,10 +233,10 @@ void reconnect()
       //      client.publish("outTopic", "hello world");
       // ... and resubscribe
 
-      client.subscribe("mysmarthome/turnoff");
-      client.subscribe("mysmarthome/turnonred");
-      client.subscribe("mysmarthome/turnonblue");
-      client.subscribe("mysmarthome/turnongreen");
+      client.subscribe("<THING_NAME>/turnoff");
+      client.subscribe("<THING_NAME>/turnonred");
+      client.subscribe("<THING_NAME>/turnonblue");
+      client.subscribe("<THING_NAME>/turnongreen");
     }
     else
     {

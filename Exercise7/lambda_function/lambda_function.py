@@ -94,11 +94,7 @@ def intent_router(event, context):
         
     if intent == "turnoffIntent":
         logger.info("turn off light")
-        return respond_intent("Turning off light", "mysmarthome/turnoff", None)
-    
-    if intent == "customColorIntent":
-        logger.info("Turning on your favourite colour light")
-        return respond_intent("Turning on your favourite colour light", "mysmarthome/turnonblue", None)
+        return respond_intent("Turning off light", thing_name + "/turnoff", None)
 
     if intent == "turnonIntent":
         logger.info("turn on light")
@@ -106,13 +102,13 @@ def intent_router(event, context):
             value = event['request']['intent']['slots']['color']['value']
             if value == 'red':
                 logger.info("turn on red light")
-                return respond_intent("Turning on " + str(value) + " light", "mysmarthome/turnonred", value)
+                return respond_intent("Turning on " + str(value) + " light", thing_name + "/turnonred", value)
             if value == 'blue':
                 logger.info("turn on blue light")
-                return respond_intent("Turning on " + str(value) + " light", "mysmarthome/turnonblue", value)
+                return respond_intent("Turning on " + str(value) + " light", thing_name + "/turnonblue", value)
             if value == 'green':
                 logger.info("turn on green light")
-                return respond_intent("Turning on " + str(value) + " light", "mysmarthome/turnongreen", value)
+                return respond_intent("Turning on " + str(value) + " light", thing_name + "/turnongreen", value)
             else:
                  return alexa_response_builder.statement("Color not supplied!")
         else:

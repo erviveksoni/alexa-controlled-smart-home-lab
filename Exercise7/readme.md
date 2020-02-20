@@ -17,7 +17,7 @@ Every message passed to the Lambda function represents a type of action the user
 - Select `disable` option for the Skill ID verification
 - Click `Add` to complete adding an alexa trigger
 - On the Designer section, click the lambda function icon
-- Go to `Basic settings` section of the page
+- Scroll down to the `Basic settings` section of the page
 - On a safer side, set memory as `256 MB` and Timeout as `10 seconds`
 - Click `Save` button on the top right corner to save changes
 - Make a note of the lambda function `ARN` from the top right corner of the screen

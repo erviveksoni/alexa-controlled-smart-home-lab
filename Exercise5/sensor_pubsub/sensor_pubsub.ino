@@ -51,19 +51,19 @@ void callback(char *topic, byte *payload, unsigned int length)
   }
   Serial.println();
 
-  if (strcmp(topic, "mysmarthome/turnonred") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnonred") == 0)
   {
     set_red_led();
   }
-  if (strcmp(topic, "mysmarthome/turnonblue") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnonblue") == 0)
   {
     set_blue_led();
   }
-  if (strcmp(topic, "mysmarthome/turnongreen") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnongreen") == 0)
   {
     set_green_led();
   }
-  if (strcmp(topic, "mysmarthome/turnoff") == 0)
+  if (strcmp(topic, "<THING_NAME>/turnoff") == 0)
   {
     turn_off_led();
   }
@@ -185,7 +185,7 @@ void loop()
   {
     value = get_temperature();
     lastMsg = now;
-    snprintf(msg, 75, "Room Temprature: %ld", value);
+    snprintf(msg, 75, "Room Temperature: %ld", value);
     Serial.print("Publish message: ");
     Serial.println(msg);
     snprintf(payload, 75, "{ \"state\":{\"reported\":{\"temperature\":%ld}}}", value);
@@ -210,10 +210,10 @@ void reconnect()
       //      client.publish("outTopic", "hello world");
       // ... and resubscribe
 
-      client.subscribe("mysmarthome/turnoff");
-      client.subscribe("mysmarthome/turnonred");
-      client.subscribe("mysmarthome/turnonblue");
-      client.subscribe("mysmarthome/turnongreen");
+      client.subscribe("<THING_NAME>/turnoff");
+      client.subscribe("<THING_NAME>/turnonred");
+      client.subscribe("<THING_NAME>/turnonblue");
+      client.subscribe("<THING_NAME>/turnongreen");
     }
     else
     {

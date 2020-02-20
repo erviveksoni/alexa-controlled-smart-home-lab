@@ -17,7 +17,6 @@ Now we are all set to create an Alexa skill which will interact with user to rec
 - Copy and paste the contents of the `skill.json` file you downloaded as part of this repository into the editor surface
 - Click `Save Model` button at the top of the page
 - Feel free to go through the list of intents from the left hand navigation. Every intent represents a command the user can invoke
-- Click `Endpoint` from the left hand navigation
 - Click `Build Model` button at the top of the page and wait for the skill build process to complete
 
 

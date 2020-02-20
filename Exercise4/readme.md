@@ -14,7 +14,7 @@ Let's start by setting up a device in AWS IoT service.
 - Click `Create` in the top right corner of the screen
 - In the create policy screen, click `Advanced mode`
 - Provide a policy name e.g. `MySmarthomePolicy`
-- In the below JSON. replace the `<REGION>` with your AWS account region, `<ACCOUNT_NUMBER>` with your AWS [Account Id](https://console.aws.amazon.com/billing/home?#/account) and `<THING_NAME>` with the name of the AWS thing you will create e.g. `mysmarthomeDevice`
+- In the below JSON. replace the `<REGION>` with your AWS account region, `<ACCOUNT_NUMBER>` with your AWS [Account Id](https://console.aws.amazon.com/billing/home?#/account) and `<THING_NAME>` with the name of the AWS thing you will create e.g. `smarthome`
 ````json5
 {
   "Version": "2012-10-17",
@@ -27,10 +27,10 @@ Let's start by setting up a device in AWS IoT service.
       "Resource": [
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/$aws/things/<THING_NAME>/shadow/update",
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/$aws/things/<THING_NAME>/shadow/get",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnoff",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnonred",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnongreen",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnonblue"      
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnoff",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnonred",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnongreen",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnonblue"      
       ]
     },
     {
@@ -43,10 +43,10 @@ Let's start by setting up a device in AWS IoT service.
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/$aws/things/<THING_NAME>/shadow/get/rejected",
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/$aws/things/<THING_NAME>/shadow/update/accepted",
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/$aws/things/<THING_NAME>/shadow/update/rejected",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnoff",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnonred",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnongreen",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/mysmarthome/turnonblue"
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnoff",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnonred",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnongreen",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topic/<THING_NAME>/turnonblue"
       ]
     },
     {
@@ -59,10 +59,10 @@ Let's start by setting up a device in AWS IoT service.
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/$aws/things/<THING_NAME>/shadow/get/rejected",
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/$aws/things/<THING_NAME>/shadow/update/accepted",
         "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/$aws/things/<THING_NAME>/shadow/update/rejected",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/mysmarthome/turnoff",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/mysmarthome/turnonred",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/mysmarthome/turnongreen",
-        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/mysmarthome/turnonblue"
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/<THING_NAME>/turnoff",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/<THING_NAME>/turnonred",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/<THING_NAME>/turnongreen",
+        "arn:aws:iot:<REGION>:<ACCOUNT_NUMBER>:topicfilter/<THING_NAME>/turnonblue"
       ]
     },
     {
@@ -81,7 +81,7 @@ Let's start by setting up a device in AWS IoT service.
 - On the left hand navigation, click to expand `Manage` and then select `Thing`
 - Click `Create` in the top right corner of the screen
 - Click `Create a single thing` button in the next screen
-- Provide a name for the things e.g. `MySmarthomeDevice`. This should be the same name as used during policy creation
+- Provide a name for the things e.g. `smarthome`. This should be the same name as used during policy creation
 - Click `Next`
 - Click `Create certificate` in front of One-click certificate creation (recommended)
 - Download all the 3 certificate files for your thing (public, private and certificate) and save them into `certs` folder
